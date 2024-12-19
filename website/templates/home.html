@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block body %}
+<div class="container text-center main-content">
+    <div class="row mb-4">
+        <!-- Danh sách các PC -->
+        <div class="col-md-3">
+            <div class="list-group" id="right1">
+                <a href="" class="list-group-item list-group-item-action">PC Gaming</a>
+                <a href="" class="list-group-item list-group-item-action">PC Workstation</a>
+                <a href="" class="list-group-item list-group-item-action">PC Văn Phòng</a>
+                <a href="" class="list-group-item list-group-item-action">PC AMD Gaming</a>
+                <a href="" class="list-group-item list-group-item-action">PC Core Ultra</a>
+                <a href="" class="list-group-item list-group-item-action">PC Giả Lập</a>
+                <a href="" class="list-group-item list-group-item-action">PC Mini</a>
+                <a href="" class="list-group-item list-group-item-action">Linh Kiện Máy Tính</a>
+                <a href="" class="list-group-item list-group-item-action">Build PC Theo Nhu Cầu</a>
+            </div>
+        </div>
+
+        <!-- Hình ảnh trung tâm -->
+        <div class="col-md-7">
+            <img src="../static/images/center.jpg" alt="Center Image" class="img-fluid rounded">
+        </div>
+
+        <!-- Thông tin hỗ trợ -->
+        <div class="col-md-2 menuRight">
+            <div class="info-box p-3 mb-3 menuRight choiceMenu">
+                <div class="info-item d-flex align-items-center mb-2">
+                    <i class="fa-solid fa-phone text-primary me-2"></i>
+                    <div>
+                        <h6 class="m-0">Trợ Giúp</h6>
+                        <p class="small text-muted">Customer Care</p>
+                    </div>
+                </div>
+                <div class="info-item d-flex align-items-center mb-2">
+                    <i class="fa-solid fa-coins text-warning me-2"></i>
+                    <div>
+                        <h6 class="m-0">Giảm Giá</h6>
+                        <p class="small text-muted">Quick Refund</p>
+                    </div>
+                </div>
+                <div class="info-item d-flex align-items-center">
+                    <i class="fa-solid fa-shield text-success me-2"></i>
+                    <div>
+                        <h6 class="m-0">Bảo Hành</h6>
+                        <p class="small text-muted">FBA Program</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <img src="../static/images/techweek.jpg" alt="Tech Week" class="img-fluid rounded">
+            </div>
+        </div>
+    </div>
+
+    <!-- Thương hiệu -->
+    <div class="row mb-4 flexT">
+        <div class="col brand-box d-flex align-items-center">
+            <img src="../static/images/acer.jpg" alt="Acer" class="brand-logo">
+<!--            <h6 class="m-0 ms-2">Acer</h6>-->
+        </div>
+        <div class="col brand-box d-flex align-items-center">
+            <img src="../static/images/asus.jpg" alt="Asus" class="brand-logo">
+<!--            <h6 class="m-0 ms-2">Asus</h6>-->
+        </div>
+        <div class="col brand-box d-flex align-items-center">
+            <img src="../static/images/lenovo.jpg" alt="Lenovo" class="brand-logo">
+<!--            <h6 class="m-0 ms-2">Lenovo</h6>-->
+        </div>
+        <div class="col brand-box d-flex align-items-center">
+            <img src="../static/images/msi.jpg" alt="MSI" class="brand-logo">
+<!--            <h6 class="m-0 ms-2">MSI</h6>-->
+        </div>
+    </div>
+
+    <!-- Danh sách sản phẩm -->
+    <div class="row product-list bg-light p-3 rounded">
+        {% for item in items %}
+        <div class="col-md-3 product-item p-3 mb-4 menuRight">
+            <img src="{{ item.product_picture }}" alt="{{ item.product_name }}" class="img-fluid rounded mb-2">
+            <h6 class="text-muted">{{ item.product_name }}</h6>
+            <h5 class="text-dark fw-bold">Ksh {{ item.current_price }}</h5>
+            <strike class="text-muted">Ksh {{ item.previous_price }}</strike>
+            <p class="text-muted small">{{ item.in_stock }} Items Left</p>
+            <a href="/add-to-cart/{{ item.id }}" class="btn btn-primary btn-sm">Add</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+
