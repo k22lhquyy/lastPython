@@ -96,6 +96,8 @@ def minus_cart():
         cart_id = request.args.get('cart_id')
         cart_item = Cart.query.get(cart_id)
         cart_item.quantity = cart_item.quantity - 1
+        if cart_item.quantity < 0:
+            cart_item.quantity = 0
         db.session.commit()
 
         cart = Cart.query.filter_by(customer_link=current_user.id).all()

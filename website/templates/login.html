@@ -5,31 +5,52 @@
 {% block body %}
 
 <!-- Login section start -->
-
 <section class="base" id="base-signup">
     <div class="base-content">
         <div class="form">
-            <h3>
+            <h3 class="text-center mb-4" style="font-size: 2rem; font-weight: bold; color: #333;">
                 Login to start <br> Shopping
             </h3>
-            
+
             <hr class="first">
             <form method="POST">
                 {{ form.hidden_tag() }}
 
-                <div class="email"><h4>Email Address</h4>{{ form.email }} <hr></div>
-                <div class="password"><h4>Password</h4>{{ form.password }} <hr></div>
-
-                <div class="buttons">
-                    <a href="/sign-up"> Sign Up</a>
-                    {{ form.submit() }}
+                <!-- Email -->
+                <div class="email mb-3">
+                    <h4 class="mb-2" style="font-size: 1.2rem; color: #495057;">Email Address</h4>
+                    {{ form.email(class="form-control rounded border-primary") }}
+                    <hr>
                 </div>
 
+                <!-- Password -->
+                <div class="password mb-3">
+                    <h4 class="mb-2" style="font-size: 1.2rem; color: #495057;">Password</h4>
+                    {{ form.password(class="form-control rounded border-primary") }}
+                    <hr>
+                </div>
 
+                <!-- Buttons -->
+                <div class="buttons d-flex justify-content-between align-items-center mt-4">
+                    <a href="/sign-up" class="text-primary fw-bold">Sign Up</a>
+                    {{ form.submit(class="btn btn-primary rounded-pill px-5") }}
+                </div>
+
+                <!-- Social Login -->
+                <div class="social-login text-center mt-4">
+                    <p class="text-muted mb-2">Or log in using</p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <button type="button" class="btn-outline-primary rounded-pill px-4">
+                            <i class="bi bi-facebook"></i> Facebook
+                        </button>
+                        <button type="button" class="btn-outline-danger rounded-pill px-4">
+                            <i class="bi bi-google"></i> Gmail
+                        </button>
+                    </div>
+                </div>
             </form>
         </div>
     </div>
 </section>
-
 
 {% endblock %}

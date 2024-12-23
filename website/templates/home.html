@@ -79,11 +79,11 @@
     <!-- Danh sách sản phẩm -->
     <div class="row product-list bg-light p-3 rounded">
         {% for item in items %}
-        <div class="col-md-3 product-item p-3 mb-4 menuRight">
+        <div class="col-md-2 product-item p-3 mb-4 menuRight">
             <img src="{{ item.product_picture }}" alt="{{ item.product_name }}" class="img-fluid rounded mb-2">
             <h6 class="text-muted">{{ item.product_name }}</h6>
-            <h5 class="text-dark fw-bold">Ksh {{ item.current_price }}</h5>
-            <strike class="text-muted">Ksh {{ item.previous_price }}</strike>
+            <h5 class="text-dark fw-bold">USD {{ item.current_price }}</h5>
+            <strike class="text-muted">USD {{ item.previous_price }}</strike>
             <p class="text-muted small">{{ item.in_stock }} Items Left</p>
             <a href="/add-to-cart/{{ item.id }}" class="btn btn-primary btn-sm">Add</a>
         </div>

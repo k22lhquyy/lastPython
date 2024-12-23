@@ -118,10 +118,10 @@ img {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Phần thông tin bên phải */
+/* Phần thông tin bên phải  align-items: center;*/
 .row div {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     margin: 5px 0;
 }
 
@@ -148,8 +148,6 @@ img {
 }
 
 .col:hover {
-    background-color: #007bff;
-    color: #fff;
     transform: translateY(-5px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
